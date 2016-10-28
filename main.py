@@ -13,6 +13,7 @@ class Db_Connector:
     s = cf.sections()
     print 'section:', s
 
+
     o = cf.options("baseconf")
     print 'options:', o
 
