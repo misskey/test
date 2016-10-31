@@ -18,45 +18,7 @@ def parseASSIGN(line):
 def parseEXP(val):
     token = __next__(val)
     print token
-def parseEXP(self):
-		# Locals are faster
-		ISO8601 = re.compile(r'^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}Z$')
-		FLOAT = re.compile(r'^[+-]?\d(>?\.\d+)?$')
-		STRING = re.compile(r'(?:".*?[^\\]?")|(?:\'.*?[^\\]?\')')
 
-		token = next(self.reader)
-		if token == '[':
-		# Array
-			array = []
-			skip(self.reader, '[')
-			while top(self.reader) != ']':
-				array.append(self.parseEXP())
-				if len(array) > 1 and self._is_pedantic\
-				   and type(array[-1]) != type(array[0]):
-					raise Exception("Array of mixed data types.")
-				if next(self.reader) != ',':
-					break
-				skip(self.reader, ",")
-			allownl(self.reader)
-			skip(self.reader, "]")
-			return array
-		elif STRING.match(token):
-		# String
-			return pop(self.reader)[1:-1].decode('string-escape')
-		elif token in ('true', 'false'):
-		# Boolean
-			return {'true': True, 'false': False}[pop(self.reader)]
-		elif token.isdigit() or token[1:].isdigit() and token[0] in ('+', '-'):
-		# Integer
-			return int(pop(self.reader))
-		elif FLOAT.match(token):
-		# Float
-			return float(pop(self.reader))
-		elif ISO8601.match(token):
-		# Date
-			date = dt.strptime(pop(self.reader), "%Y-%m-%dT%H:%M:%SZ")
-			return date if not self._asJson else date.isoformat()
-		raise Exception("Invalid token: %s" % token)
 def __next__(val):
 		# Returns next token in the current LINE.
 		# Ignores comments.
