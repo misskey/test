@@ -8,8 +8,12 @@ __author__ = 'mgf'
 __time__ = '2016/11/1'
 from MachineFactory import Reader
 from psmState import Parser
-import MachineFactory
 
+operator = {
+  "passLine":Reader.parsePass,
+  "bracket":Reader.parseKEYGROUP,
+  "charsNum":Reader.parseASSIGN,
+}
 
 def toParse(file):
     reader =Reader(file)#读取文件流
@@ -17,7 +21,8 @@ def toParse(file):
         token=Reader.nextLIne(reader)
         # print token
         states=Parser.modifyStates(token)
-        print states
+
+
 
 
 

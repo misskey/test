@@ -94,8 +94,6 @@ class Reader(object):
 
 
     def parseASSIGN(self):
-        # Parse an assignment
-        # disallow variable rewriting
         var = self.pop(self.reader)  # symbol
         self.pop(self.reader, expect='=')
         val = self.parseEXP()
@@ -173,12 +171,9 @@ class Reader(object):
         print "123"
     def mainLoop(self):
         print "123"
-    operator={
-        "skip": skip,
-        "pop":pop,
-        "top":top,
-        "test":test,
-    }
+
+
+
 if __name__ == '__main__':
     DIR = dirname(abspath(__file__))
     tomlFile = glob(join(DIR, '*.toml'))
