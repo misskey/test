@@ -7,13 +7,19 @@ from psmState import Parser
 __author__ = 'mgf'
 __time__ = '2016/11/1'
 from MachineFactory import Reader
+from psmState import Parser
+import MachineFactory
 
 
 def toParse(file):
     reader =Reader(file)#读取文件流
     while reader.readLine(reader):
         token=Reader.nextLIne(reader)
-        print token
+        # print token
+        states=Parser.modifyStates(token)
+        print states
+
+
 
 
 if __name__ == '__main__':

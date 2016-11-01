@@ -21,19 +21,23 @@ class Parser(object):
             self.line = None
         return self.line
 
-
-    def mainLoop(self, state=None):
+    @staticmethod
+    def modifyStates(token):
+        state=1
         # 通过文件流判断字符标识
-        while self.readLine(self.reader):
-            token = next(self.reader)
+        if state==1:
+            print "解析第一层"
             if token == "#":
-                state=="passLine"
+                state="passLine"
             elif token[0] == "[":
-                state=="bracket"
+                state="bracket"
             elif re.match(r'[^\W\d_]', token, re.U):
-                state=="charsNum"
+                state="charsNum"
             else:
                 raise Exception("Unrecognized token: %s" % token)
+        return state
+        if state==2:
+            print "解析第二层"
 
 
     def readLine(self,reader):
