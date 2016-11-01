@@ -100,5 +100,6 @@ class Reader(object):
 		# Ignores comments.
 		if not self.line or self.line[0] == "#":
 			return None
+		print self.line[0]
 		return self.line[0]
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import json
-from StringIO import StringIO
+from io import StringIO
 
 VERBOSE = True
 dic = dict()

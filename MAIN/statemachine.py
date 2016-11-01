@@ -29,4 +29,3 @@ class StateMachine:
                 break
             else:
                 handler = self.handlers[upper(newState)]
-
