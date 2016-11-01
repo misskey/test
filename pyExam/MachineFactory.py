@@ -72,8 +72,6 @@ class Reader(object):
             raise Exception("É¾³ýÊ§°Ü '%s,'." \
                             % (val, ', '.join(expect)))
     def __next__(self):
-		# Returns next token in the current LINE.
-		# Ignores comments.
 		if not self.line or self.line[0] == "#":
 			return None
 		return self.line[0]

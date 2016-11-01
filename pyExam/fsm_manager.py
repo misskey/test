@@ -10,10 +10,11 @@ from MachineFactory import Reader
 
 
 def toParse(file):
-    reader =Reader(file)
-    print reader
+    reader =Reader(file)#读取文件流
     while reader.readLine(reader):
-        Reader.nextLIne(reader)
+        token=Reader.nextLIne(reader)
+        print token
+
 
 if __name__ == '__main__':
      DIR = dirname(abspath(__file__))
